@@ -1,0 +1,1 @@
+# Intune/Defender baselines (templates)
