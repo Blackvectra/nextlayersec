@@ -1,0 +1,17 @@
+<!-- branding/logo.svg -->
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Shield Body -->
+  <path d="M100 30 L170 60 Q160 135 100 175 Q40 135 30 60 Z"
+        fill="#25324A" stroke="#22D99D" stroke-width="5"/>
+  <!-- Radar Circles -->
+  <circle cx="100" cy="100" r="60" fill="none" stroke="#22D99D" stroke-width="2" opacity="0.3"/>
+  <circle cx="100" cy="100" r="40" fill="none" stroke="#22D99D" stroke-width="1.5" opacity="0.2"/>
+  <circle cx="100" cy="100" r="25" fill="none" stroke="#22D99D" stroke-width="1" opacity="0.18"/>
+  <!-- Radar Beam -->
+  <path d="M100 100 L160 70" stroke="#22D99D" stroke-width="3" opacity="0.6"/>
+  <!-- Center Checkmark (protection) -->
+  <polyline points="80,115 98,130 130,85"
+            fill="none" stroke="#FAFFFD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="180" rx="35" ry="7" fill="#222A3A" opacity="0.24"/>
+</svg>
