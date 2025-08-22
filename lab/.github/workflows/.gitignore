@@ -1,0 +1,8 @@
+# Secrets & local artifacts
+.env
+*.key
+*.pem
+configurations/firewall/*-secrets*.xml
+configurations/**/backups/*
+diagrams/exports/*.tmp
+logs/
