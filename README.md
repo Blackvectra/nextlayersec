@@ -2,77 +2,67 @@
   <img src="branding/logo.svg" alt="NextLayerSec Labs Logo" width="180"/>
 </p>
 # NEXTLAYERSEC 🔐  
-
-> Cybersecurity frameworks, blue team tools, and practical labs — all in one place.  
-
----
-
-## 🌐 Links
-- 🌍 [Website](https://nextlayersec.io)  
-- 📚 [Frameworks](#frameworks)  
-- 🛠 [Tools](#tools)  
-- 📖 [References](#references)  
-- 📝 [Playbooks](#playbooks)  
+*Cybersecurity frameworks, blue team tools, and practical labs — all in one place.*
 
 ---
 
-## 📖 Overview
-**NextLayerSec** is a knowledge hub that unifies:  
-- Cybersecurity frameworks  
-- Blue team resources  
-- Practical labs & projects  
-
-The goal is to provide a **one-stop shop** for security professionals, students, and enthusiasts to access **organized, actionable content** that blends **theory with hands-on practice**.  
+## 🚀 Quick Links
+- 🌐 Website: https://nextlayersec.io
+- 🔗 LinkedIn: https://www.linkedin.com/in/matthewlevorson/
+- 🧑‍💻 GitHub: https://github.com/Blackvectra
 
 ---
 
-## 🏗 Frameworks
-- **NIST Cybersecurity Framework**  
-- **MITRE ATT&CK**  
-- **ISO 27001**  
-- **CJIS, HIPAA, PCI-DSS, FERPA**  
-- …with more being added  
+## 🧭 What’s Here
+This hub links out to focused repos so nothing overlaps. Each repo has a clear purpose:
+
+### 🏗 Frameworks & Guidance
+- **Cybersecurity Guides** → blue team playbooks, detection workflows, purple-team labs, TI docs  
+  https://github.com/Blackvectra/cybersecurity-guides
+
+### 🧪 Labs & Writeups
+- **CyberSecurity Lab Vault** → curated labs, CTF solutions, pentest projects  
+  https://github.com/Blackvectra/CyberSecurity-lab-vault  
+- **CTF Writeups** → challenge notes, payloads, flags  
+  https://github.com/Blackvectra/ctf-writeups  
+- **Ethical Hacking Lab** → full offensive lab environment  
+  https://github.com/Blackvectra/ethical-hacking-lab  
+- **Infra-Sec Lab** → home lab: Defender, OPNsense, VLANs, SIEM  
+  https://github.com/Blackvectra/infra-sec-lab
+
+### 📓 Notes & Learning
+- **NextLayerSec Notes** → CTF, college, cert, and life lessons  
+  https://github.com/Blackvectra/nextlayersec-notes  
+- **Certification Tracker** → progress on current & future certs  
+  https://github.com/Blackvectra/certification-tracker
+
+### 🛠 Tools (builds & forks)
+- **Vulnwatch** → lightweight vuln tracking (private for now)  
+  https://github.com/Blackvectra/Vulnwatch  
+- **ThreatFeedCollector** → open‑source threat intel feed aggregator  
+  https://github.com/Blackvectra/threatfeedcollector  
+- **osint-scrub-kit** → OSINT exposure scrubber  
+  https://github.com/Blackvectra/osint-scrub-kit
+
+> More tools live in their own repos to keep codebases clean and versioned.
 
 ---
 
-## 🛠 Tools
-- Blue team scripts & automations  
-- Incident response utilities  
-- Hash/DLL verification tools  
-- Security lab configurations  
+## 🧱 Frameworks Focus (site sections)
+- **NIST CSF** – identify / protect / detect / respond / recover  
+- **MITRE ATT&CK** – map detections to real attacker TTPs  
+- **ISO/IEC 27001** – ISMS foundation  
+- **IRS Pub 1075** – safeguarding FTI in U.S. gov environments  
 
----
-
-## 📚 References
-- Study guides  
-- Cheat sheets  
-- Acronym lists  
-- Command references  
-
----
-
-## 📝 Playbooks
-- Incident response runbooks  
-- Detection & response checklists  
-- Lab write-ups  
-- Security baselines  
+> See details and docs in: https://github.com/Blackvectra/cybersecurity-guides/tree/main/frameworks
 
 ---
 
 ## 🤝 Contributing
-This is a **living project**.  
-Pull requests, issues, and suggestions are always welcome — especially community-driven additions that expand frameworks, tools, or labs.  
+Issues & PRs welcome across repos. This hub keeps everything discoverable.
 
 ---
 
-## 📬 Connect
-- 🌍 [Website](https://nextlayersec.io)  
-- 💼 [LinkedIn](https://linkedin.com/in/matthewlevorson)  
-- 🐦 [Twitter/X](https://twitter.com/)  
-- 💻 [GitHub](https://github.com/blackvectra)  
-
----
-
-<p align="center">  
-  🔐 Built with passion by <b>NextLayerSec</b> — Security, Knowledge, and Labs.  
+<p align="center">
+  Built by <b>Blackvectra</b> • <a href="https://nextlayersec.io">nextlayersec.io</a>
 </p>
