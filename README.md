@@ -6,31 +6,35 @@
 ---
 
 ## 🌐 Links
-- [Website](https://nextlayersec.dev)  
-- [Frameworks](#frameworks)  
-- [Tools](#tools)  
-- [References](#references)  
-- [Playbooks](#playbooks)  
+- 🌍 [Website](https://nextlayersec.io)  
+- 📚 [Frameworks](#frameworks)  
+- 🛠 [Tools](#tools)  
+- 📖 [References](#references)  
+- 📝 [Playbooks](#playbooks)  
 
 ---
 
 ## 📖 Overview
-NextLayerSec is a knowledge hub designed to bring together **cybersecurity frameworks, blue team resources, and practical lab projects**.  
-The goal is to create a **one-stop shop** for security professionals and learners to access organized, actionable content.  
+**NextLayerSec** is a knowledge hub that unifies:  
+- Cybersecurity frameworks  
+- Blue team resources  
+- Practical labs & projects  
+
+The goal is to provide a **one-stop shop** for security professionals, students, and enthusiasts to access **organized, actionable content** that blends **theory with hands-on practice**.  
 
 ---
 
 ## 🏗 Frameworks
-- [NIST Cybersecurity Framework](#)  
-- [MITRE ATT&CK](#)  
-- [ISO 27001](#)  
-- [CJIS, HIPAA, PCI-DSS, FERPA](#)  
-- …and more  
+- **NIST Cybersecurity Framework**  
+- **MITRE ATT&CK**  
+- **ISO 27001**  
+- **CJIS, HIPAA, PCI-DSS, FERPA**  
+- …with more being added  
 
 ---
 
 ## 🛠 Tools
-- Blue team scripts and automations  
+- Blue team scripts & automations  
 - Incident response utilities  
 - Hash/DLL verification tools  
 - Security lab configurations  
@@ -54,14 +58,16 @@ The goal is to create a **one-stop shop** for security professionals and learner
 ---
 
 ## 🤝 Contributing
-This is a living project. Pull requests, issues, and suggestions are welcome!  
+This is a **living project**.  
+Pull requests, issues, and suggestions are always welcome — especially community-driven additions that expand frameworks, tools, or labs.  
 
 ---
 
 ## 📬 Connect
-- [LinkedIn](https://linkedin.com/in/matthewlevorson)  
-- [Twitter/X](https://twitter.com/)  
-- [GitHub](https://github.com/blackvectra)  
+- 🌍 [Website](https://nextlayersec.io)  
+- 💼 [LinkedIn](https://linkedin.com/in/matthewlevorson)  
+- 🐦 [Twitter/X](https://twitter.com/)  
+- 💻 [GitHub](https://github.com/blackvectra)  
 
 ---
 
