@@ -1,4 +1,6 @@
-# ![NextLayerSec Logo](https://raw.githubusercontent.com/blackvectra/nextlayersec/main/assets/logo.png)  
+<p align="center">
+  <img src="branding/logo.svg" alt="NextLayerSec Labs Logo" width="180"/>
+</p>
 # NEXTLAYERSEC 🔐  
 
 > Cybersecurity frameworks, blue team tools, and practical labs — all in one place.  
