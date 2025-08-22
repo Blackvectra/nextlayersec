@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  wazuh.manager:
+    image: wazuh/wazuh-manager:4.8.1
+    container_name: wazuh-manager
+    ports:
+      - "1514:1514/udp"   # syslog/agents
+      - "1515:1515"       # agents
+    volumes:
+      - wazuh_data:/var/ossec/data
+    environment:
+      - TZ=UTC
+
+  wazuh.indexer:
+    image: wazuh/wazuh-indexer:4.8.1
+    container_name: wazuh-indexer
+    environment:
+      - TZ=UTC
+    volumes:
+      - indexer_data:/var/lib/opensearch
+
+  wazuh.dashboard:
+    image: wazuh/wazuh-dashboard:4.8.1
+    container_name: wazuh-dashboard
+    ports:
+      - "5601:5601"
+    depends_on:
+      - wazuh.manager
+      - wazuh.indexer
+    environment:
+      - TZ=UTC
+
+volumes:
+  wazuh_data:
+  indexer_data:
