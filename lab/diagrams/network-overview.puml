@@ -1,1 +1,31 @@
-# PlantUML (source)
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+title NextLayerSec - Network Overview
+
+rectangle "ISP/ONT" as isp
+node "OPNsense FW" as fw
+node "Managed Switch" as sw
+node "Eero Pro 7 (AP/Bridge)" as ap
+cloud "Cloudflare Gateway (DNS)" as cf
+cloud "Microsoft 365 / Defender" as m365
+node "Wazuh SIEM" as wazuh
+
+fw -down-> sw
+sw -down-> ap
+fw -right-> cf : DoH/DoT
+sw -right-> wazuh : Syslog/Agents
+sw -right-> m365 : API/Webhooks
+
+frame "VLANs" {
+  rectangle "VLAN10 Family 192.168.10.0/24" as v10
+  rectangle "VLAN20 IoT 192.168.20.0/24" as v20
+  rectangle "VLAN30 Lab 192.168.30.0/24" as v30
+  rectangle "VLAN40 Guest 192.168.40.0/24" as v40
+}
+
+sw -down-> v10
+sw -down-> v20
+sw -down-> v30
+sw -down-> v40
+@enduml
