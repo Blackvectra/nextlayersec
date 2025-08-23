@@ -1,4 +1,4 @@
-# <CTF Platform> — <Challenge Name> (<Category>, <Points>)
+# CTF Platform — Challenge Name Category, Points
 **Date:** YYYY-MM-DD  
 **Tags:** <platform>, <web/pwn/crypto/forensics>, <difficulty>  
 **Link:** <challenge URL>
