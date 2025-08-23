@@ -21,11 +21,13 @@ Tracks certifications and progress on current and future Certs
 
 ## 🧠 In Progress
 
-| Certification         | Progress            | Next Milestone            |
-|-----------------------|---------------------|---------------------------|
-| CySA+                 | ![70%](https://progress-bar.dev/70/?title=CySA%2B) | Finalize flashcard deck + lab VM deployment |
-| SSCP                  | ![25%](https://progress-bar.dev/25/?title=SSCP)  | Build practice lab VM    |
-
+| Certification         | Progress                                                | Next Milestone                                |
+|-----------------------|---------------------------------------------------------|-----------------------------------------------|
+| CySA+                 | ![10%](https://progress-bar.dev/70/?title=CySA%2B)     | Finalize flashcard deck + lab VM deployment   |
+| SSCP                  | ![0%](https://progress-bar.dev/25/?title=SSCP)        | Build practice lab VM                          |
+| Network+              | ![50%](https://progress-bar.dev/0/?title=Network%2B)    | Lock study plan + schedule exam window         |
+| Linux+                | ![10%](https://progress-bar.dev/0/?title=Linux%2B)      | Spin up Linux lab VM + CLI essentials          |
+| PenTest+              | ![0%](https://progress-bar.dev/0/?title=PenTest%2B)    | Build Kali/Windows lab + review objectives     |
 <details>
 <summary>📚 CySA+ Study Plan & Resources</summary>
 
