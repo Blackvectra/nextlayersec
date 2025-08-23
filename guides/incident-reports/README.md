@@ -62,6 +62,105 @@ incident_commander: <name>
 affected_vlans: [10, 20, 30, 40]
 affected_systems: [opnsense, cloudflare-gateway, wazuh, endpoints]
 related_tests: [NL-003, NL-006, NL-013]
-related_frameworks: [nist-csf: PR.AC-5, iso-27001:
+related_frameworks: [nist-csf: PR.AC-5, iso-27001: A.8.16]
+summary: >
+  One‑line plain‑English summary of the impact and scope.
+---
+
+## 1) What happened?
+Describe the symptoms (user perspective), when it started, and how it was discovered.
+
+## 2) Timeline (UTC)
+- 12:34: Reporter observed <symptom>
+- 12:40: IC assigned, set Sev S2
+- 12:50: Reproduced using NL‑003
+- 13:05: Applied temporary mitigation <change>
+- 14:10: Root cause fix <PR/commit/rule export>
+
+## 3) Detection & Evidence
+- Screenshots/logs under: `lab/validation/evidence/2025-08-22/`
+- SIEM search / query:
 ```
 
+# paste Wazuh / Graylog filter or saved search link
+
+````
+- Cloudflare Gateway query logs (IDs): <ids>
+- OPNsense firewall logs (filters): <details>
+
+## 4) Impact Assessment
+- Affected VLANs/subnets: …
+- Blocked/allowed behavior that deviated from policy: …
+- User impact: …
+
+## 5) Root Cause Analysis
+### 5.1 Five Whys (concise)
+1. Why? …
+2. Why? …
+3. Why? …
+4. Why? …
+5. Why? …
+
+### 5.2 Technical Details
+- Config diff / commit: <link>
+- Rule/policy before/after:
+```diff
+- old
++ new
+````
+
+## 6) Remediation & Verification
+
+* Immediate mitigation: …
+* Permanent fix: …
+* Verification: run NL‑### (paste results)
+* Regression added to checklist matrix: ✅ / ❌
+
+## 7) Lessons Learned
+
+* What worked / what didn’t: …
+* Gaps in monitoring/alerting: …
+* Playbook/runbook updates required: …
+
+## 8) Action Items
+
+| ID | Owner | Description                          | Priority | Due        |
+| -: | :---- | ------------------------------------ | :------- | :--------- |
+| A1 | name  | e.g., enforce DNS redirect on VLAN20 | High     | 2025‑08‑25 |
+
+## 9) Attachments & Links
+
+* Evidence dir: `lab/validation/evidence/2025-08-22/`
+* Config exports: `configurations/...`
+* Diagram reference: `diagrams/exports/network-overview.png`
+
+````
+
+---
+
+## 📇 INCIDENT-INDEX.md (create this file)
+Maintain a simple table for tracking and quick search.
+
+```md
+# Incident Index
+
+| ID | Date | Sev | Title | Status | Affected | Links |
+|---|------|----:|-------|--------|---------|-------|
+| INC-2025-08-22-dns-regress | 2025‑08‑22 | S2 | DNS blocking regressed on VLAN10 | Resolved | VLAN10 | [report](reports/inc-2025-08-22-dns-regress.md) |
+````
+
+---
+
+## 🔗 Cross‑references
+
+* **Validation**: `lab/validation/validation-checklist.md`
+* **Network plan**: `docs/network-plan.md`
+* **Frameworks mapping**: `guides/frameworks/`
+
+---
+
+## 🔒 Evidence handling
+
+* Do not commit secrets or raw tenant tokens.
+* Redact PII/keys in screenshots.
+* Use `.gitignore` for volatile dumps; only include minimal, redacted artifacts.
