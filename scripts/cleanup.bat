@@ -3,21 +3,22 @@ setlocal EnableDelayedExpansion
 title NEXTLAYERSEC - CLIENT CLEANUP TOOL v1.6 (Admin Safe Edition)
 
 :: ---------------------------------
-:: CONFIGURATION / TOGGLES
+:: TOGGLES — set to "true" or "false"
 :: ---------------------------------
-set "CLEAR_PAGEFILE=true"
-set "DELETE_WINDOWS_OLD=true"
-set "SCHEDULE_REBOOT_MINUTES=30"
-set "PROMPT_REBOOT=true"
+set "CLEAR_PAGEFILE=true"           :: Wipe pagefile on next shutdown
+set "DELETE_WINDOWS_OLD=true"       :: Remove C:\Windows.old if present
+set "PROMPT_REBOOT=true"            :: Ask Y/N at the end
+set "DEFAULT_REBOOT_CHOICE=N"       :: Default if user doesn't answer (Y or N)
+set "SCHEDULE_REBOOT_MINUTES=30"    :: Delay before reboot if accepted
 
 :: ---------------------------------
-:: LOGGING (unique per run)
+:: CONFIG / LOGGING
 :: ---------------------------------
 set "SYS=C:"
 set "LOGDIR=C:\CleanupLogs"
 if not exist "%LOGDIR%" mkdir "%LOGDIR%" >nul 2>&1
 set "LOG=%LOGDIR%\cleanup_%DATE:~-4%-%DATE:~4,2%-%DATE:~7,2%_%TIME:~0,2%-%TIME:~3,2%.txt"
-set "LOG=%LOG:"=%"   :: strip quotes from log path
+set "LOG=%LOG:"=%"
 set "TEE=powershell -NoProfile -ExecutionPolicy Bypass -Command"
 
 :: ---------------------------------
@@ -34,7 +35,7 @@ echo Press any key to begin...
 pause >nul
 
 :: ---------------------------------
-:: CHECK ADMIN
+:: ADMIN CHECK
 :: ---------------------------------
 net session >nul 2>&1
 if errorlevel 1 (
@@ -44,9 +45,9 @@ if errorlevel 1 (
 )
 
 :: ---------------------------------
-:: INITIAL FREE SPACE
+:: INITIAL FREE SPACE (locale-safe)
 :: ---------------------------------
-for /f "tokens=3" %%a in ('fsutil volume diskfree %SYS% ^| find "of free bytes"') do set "FREE_BEFORE=%%a"
+for /f "tokens=2 delims=: " %%a in ('fsutil volume diskfree %SYS% ^| find "Total # of free bytes"') do set "FREE_BEFORE=%%a"
 
 (
   echo CLEANUP REPORT - %DATE% %TIME%
@@ -75,7 +76,7 @@ net start bits >nul 2>&1
 echo [4/15] Prefetch...
 del /q /f %SystemRoot%\Prefetch\*.* >> "%LOG%" 2>&1
 
-echo [5/15] Logs...
+echo [5/15] Logs (incl. CBS)...
 del /q /s /f %SystemRoot%\Logs\*.* >> "%LOG%" 2>&1
 del /q /s /f %SystemRoot%\Logs\CBS\*.* >> "%LOG%" 2>&1
 
@@ -105,7 +106,7 @@ for /d %%P in ("%AppData%\Mozilla\Firefox\Profiles\*.default-release") do (
   del /q /f /s "%%P\cache2\entries\*.*" >> "%LOG%" 2>&1
 )
 
-echo [12/15] App caches...
+echo [12/15] App caches (Store)...
 del /q /s /f "%LocalAppData%\Packages\*\LocalCache\*.*" >> "%LOG%" 2>&1
 del /q /s /f "%LocalAppData%\Packages\*\TempState\*.*" >> "%LOG%" 2>&1
 
@@ -124,12 +125,12 @@ if /i "%CLEAR_PAGEFILE%"=="true" (
 )
 
 echo [15/15] Checking for Windows Updates (scan only)...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "UsoClient StartScan" >> "%LOG%" 2>&1
+UsoClient StartScan >> "%LOG%" 2>&1
 
 :: ---------------------------------
-:: FINAL STORAGE STATS
+:: FINAL STORAGE STATS (locale-safe)
 :: ---------------------------------
-for /f "tokens=3" %%a in ('fsutil volume diskfree %SYS% ^| find "of free bytes"') do set "FREE_AFTER=%%a"
+for /f "tokens=2 delims=: " %%a in ('fsutil volume diskfree %SYS% ^| find "Total # of free bytes"') do set "FREE_AFTER=%%a"
 set /a FREED=%FREE_AFTER% - %FREE_BEFORE%
 echo.
 echo [✓] Cleanup complete.
@@ -138,13 +139,21 @@ echo Space after  : %FREE_AFTER%
 echo Freed        : %FREED% bytes
 echo Log saved to : %LOG%
 
+>> "%LOG%" echo.
+>> "%LOG%" echo Space before : %FREE_BEFORE% bytes
+>> "%LOG%" echo Space after  : %FREE_AFTER% bytes
+>> "%LOG%" echo Freed        : %FREED% bytes
+
+:: Optional: open System Restore UI
+start "" control sysdm.cpl,,3
+
 :: ---------------------------------
-:: PROMPT REBOOT
+:: REBOOT PROMPT (Y/N with timeout)
 :: ---------------------------------
 set /a REBOOT_SECONDS=%SCHEDULE_REBOOT_MINUTES%*60
 if /i "%PROMPT_REBOOT%"=="true" (
   echo.
-  choice /C YN /D N /T 15 /M "Reboot now to finalize cleanup? (Y/N)"
+  choice /C YN /D %DEFAULT_REBOOT_CHOICE% /T 15 /M "Reboot now to finalize cleanup?"
   if errorlevel 2 (
     echo [i] Reboot skipped.
   ) else (
